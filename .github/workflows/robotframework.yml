@@ -5,27 +5,35 @@ on:
 
 jobs:	
   tests:
-    name: Run Tests #
+    name: Run Tests 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository #Clonar arquivos do repositório
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python #Configurar Python
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
-      - name: Install dependencies #Instalação das dependencias 
+      - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip  # Atualiza o pip
           pip install robotframework
           pip install robotframework-requests
+          pip install robotframework-seleniumlibrary
+          pip install selenium
+          pip install webdriver-manager
+          
+          # Verifica se o SeleniumLibrary foi instalado com sucesso
+          pip show robotframework-seleniumlibrary
+          pip show selenium
 
       - name: Run Robot Framework tests
         run: 
           robot -d results tests
 
-      - name: Archive Robot Framework results #Salvar resultados dos testes
+      - name: Archive Robot Framework results
         if: always()
         uses: actions/upload-artifact@v3
         with:
