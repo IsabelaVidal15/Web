@@ -3,6 +3,7 @@ Resource    ../resources/Company.resource
 Test Setup  Abrir o navegador
 Test Teardown  Fechar o navegador
 Suite Teardown    Fechar o navegador
+Library    Process 
 
 
 

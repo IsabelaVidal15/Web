@@ -1,6 +1,7 @@
 *** Settings ***
 Library     SeleniumLibrary
 
+
 *** Variables ***
 ${urlBase}      https://automacao.qacoders.dev.br/login  
 ${emailInput}   id=email
