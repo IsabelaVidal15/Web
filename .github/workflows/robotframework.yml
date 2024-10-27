@@ -1,4 +1,4 @@
-name: Run Robot Framework Tests
+name: Run Tests
 
 on:
   push:
@@ -9,14 +9,15 @@ on:
       - main
 
 jobs:
-  run-tests:
+  test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out the code
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
@@ -25,21 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Chrome and ChromeDriver
+      - name: Run Tests
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          sudo apt-get install -y chromium-chromedriver
-        env:
-          DEBIAN_FRONTEND: noninteractive
-
-      - name: Add ChromeDriver to PATH
-        run: |
-          export PATH=$PATH:/usr/lib/chromium-browser/
-
-      - name: Run Robot Framework tests
-        env:
-          BROWSER: Chrome
-          BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222"
-        run: |
-          robot -d results -v BROWSER:$BROWSER -v BROWSER_OPTIONS:"$BROWSER_OPTIONS" tests
+          robot -d results -v BROWSER:Chrome -v BROWSER_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage" tests
