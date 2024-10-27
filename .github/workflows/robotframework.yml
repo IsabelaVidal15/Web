@@ -1,49 +1,45 @@
-name: Robot Framework Tests
+name: Run Robot Framework Tests
 
-on: 
-  push 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-jobs:	
-  tests:
-    name: Run Tests 
+jobs:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Check out the code
         uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install robotframework
-          pip install robotframework-requests
-          pip install robotframework-seleniumlibrary
-          pip install selenium
-          pip install webdriver-manager
+          pip install -r requirements.txt
 
-      - name: Install Chrome
+      - name: Install Chrome and ChromeDriver
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y chromium-chromedriver
+        env:
+          DEBIAN_FRONTEND: noninteractive
 
-      - name: Start ChromeDriver
+      - name: Add ChromeDriver to PATH
         run: |
-          python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager().install()"
+          export PATH=$PATH:/usr/lib/chromium-browser/
 
       - name: Run Robot Framework tests
         env:
-          ROBOT_BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage"
-          ROBOT_BROWSER: "Chrome"
+          BROWSER: Chrome
+          BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222"
         run: |
-          robot -d results -v BROWSER:Chrome -v BROWSER_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage" tests
-
-      - name: Archive Robot Framework results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: robot-results
-          path: ./results
+          robot -d results -v BROWSER:$BROWSER -v BROWSER_OPTIONS:"$BROWSER_OPTIONS" tests
