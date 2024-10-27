@@ -25,14 +25,17 @@ jobs:
           pip install selenium
           pip install webdriver-manager
 
-      - name: Install Chrome
+      - name: Install Chrome and ChromeDriver
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+' | head -1)
+          sudo apt-get install -y chromedriver
 
       - name: Run Robot Framework tests
         env:
-          ROBOT_BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage"  # Configurações para rodar o Chrome em headless
+          ROBOT_BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage"
+          ROBOT_BROWSER: "Chrome"
         run: |
           robot -d results -v BROWSER:Chrome -v BROWSER_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage" tests
 
