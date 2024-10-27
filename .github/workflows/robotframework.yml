@@ -22,7 +22,7 @@ jobs:
           python-version: '3.12'
 
       - name: List files
-        run: ls -R  # Lista todos os arquivos e diretórios recursivamente
+        run: ls -R  # Lista todos os arquivos e diretórios recursivamente para verificar onde está o requirements.txt
 
       - name: Install dependencies
         run: |
