@@ -25,12 +25,14 @@ jobs:
           pip install selenium
           pip install webdriver-manager
 
-      - name: Install Chrome and ChromeDriver
+      - name: Install Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+' | head -1)
-          sudo apt-get install -y chromedriver
+
+      - name: Start ChromeDriver
+        run: |
+          python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager().install()"
 
       - name: Run Robot Framework tests
         env:
