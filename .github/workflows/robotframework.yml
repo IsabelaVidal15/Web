@@ -36,7 +36,7 @@ jobs:
 
       - name: Start ChromeDriver with Specific Version
         run: |
-          python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager(version='114.0.5735.90').install()"
+          python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager().install_path(version='114.0.5735.90')"
 
       - name: Run Robot Framework tests
         env:
