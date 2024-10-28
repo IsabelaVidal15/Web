@@ -36,10 +36,10 @@ jobs:
 
       - name: Run Robot Framework tests
         env:
-          ROBOT_BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage"
+          ROBOT_BROWSER_OPTIONS: "--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222"
           ROBOT_BROWSER: "Chrome"
         run: |
-          robot -d results -v BROWSER:Chrome -v BROWSER_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage" tests
+          robot -d results -v BROWSER:Chrome -v BROWSER_OPTIONS:"--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222" tests
 
       - name: Archive Robot Framework results
         if: always()
