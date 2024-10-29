@@ -1,12 +1,22 @@
 name: Robot Framework Tests
 
 on: 
-  push 
+  push: 
 
 jobs:	
   tests:
     name: Run Tests 
     runs-on: windows-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: https://IsabelaVidal15.github.io/Web/report.html 
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -45,3 +55,15 @@ jobs:
         with:
           name: robot-results
           path: ./results
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: results/
+
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
