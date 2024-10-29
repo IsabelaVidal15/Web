@@ -30,11 +30,13 @@ jobs:
 
       - name: Download and Install ChromeDriver
         run: |
-          CHROMEDRIVER_VERSION=130.0.6723.69
-          wget "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_win32.zip"
-          powershell -Command "Expand-Archive chromedriver_win32.zip -DestinationPath ."
-          move chromedriver.exe C:\Windows\System32\  # Move the driver to a location in PATH
-          del chromedriver_win32.zip  # Remove the zip file after extraction
+          powershell -Command "
+          $CHROMEDRIVER_VERSION = '130.0.6723.69';
+          Invoke-WebRequest 'https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_win32.zip' -OutFile 'chromedriver_win32.zip';
+          Expand-Archive 'chromedriver_win32.zip' -DestinationPath '.';
+          Move-Item 'chromedriver.exe' 'C:\Windows\System32\'; 
+          Remove-Item 'chromedriver_win32.zip'
+          "
 
       - name: Run Robot Framework tests
         env:
