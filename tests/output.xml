@@ -1,155 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-10-28T21:27:04.321259" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2024-10-28T21:32:09.681235" rpa="false" schemaversion="5">
 <suite id="s1" name="Company" source="C:\Robot Framework\Logs\Web\tests\company.robot">
 <test id="s1-t1" name="Acessar o sistema e listar empresas cadastradas" line="12">
 <kw name="Abrir o navegador" owner="Company" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:04.524686" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders.dev.br/login'.</msg>
+<msg time="2024-10-28T21:32:09.868072" level="INFO">Opening browser 'chrome' to base url 'https://automacao.qacoders.dev.br/login'.</msg>
 <arg>${urlBase}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-10-28T21:27:04.524686" elapsed="4.682103"/>
+<status status="PASS" start="2024-10-28T21:32:09.868072" elapsed="4.161515"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.206789" elapsed="0.040954"/>
+<status status="PASS" start="2024-10-28T21:32:14.029587" elapsed="0.046066"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:04.524686" elapsed="4.723057"/>
+<status status="PASS" start="2024-10-28T21:32:09.868072" elapsed="4.208863"/>
 </kw>
 <kw name="Login no sistema" owner="Company">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:09.255509" level="INFO">Opening url 'https://automacao.qacoders.dev.br/login'</msg>
+<msg time="2024-10-28T21:32:14.077552" level="INFO">Opening url 'https://automacao.qacoders.dev.br/login'</msg>
 <arg>url=${urlBase}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.255509" elapsed="0.140061"/>
+<status status="PASS" start="2024-10-28T21:32:14.077552" elapsed="0.107326"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>locator=${emailInput}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.395570" elapsed="0.032509"/>
+<status status="PASS" start="2024-10-28T21:32:14.184878" elapsed="0.024187"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:09.428079" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'id=email'.</msg>
+<msg time="2024-10-28T21:32:14.209065" level="INFO">Typing text 'sysadmin@qacoders.com' into text field 'id=email'.</msg>
 <arg>locator=${emailInput}</arg>
 <arg>text=${emailValido}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.428079" elapsed="0.198826"/>
+<status status="PASS" start="2024-10-28T21:32:14.209065" elapsed="0.192417"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>locator=${senhaInput}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.626905" elapsed="0.014508"/>
+<status status="PASS" start="2024-10-28T21:32:14.401482" elapsed="0.015307"/>
 </kw>
 <kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:09.641413" level="INFO">Typing password into text field 'id=password'.</msg>
-<msg time="2024-10-28T21:27:09.675015" level="INFO">Temporally setting log level to: NONE</msg>
+<msg time="2024-10-28T21:32:14.416789" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2024-10-28T21:32:14.446548" level="INFO">Temporally setting log level to: NONE</msg>
 <arg>locator=${senhaInput}</arg>
 <arg>password=${senhaValida}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.641413" elapsed="0.094646"/>
+<status status="PASS" start="2024-10-28T21:32:14.416789" elapsed="0.097757"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>locator=${botaoInput}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.736059" elapsed="0.023509"/>
+<status status="PASS" start="2024-10-28T21:32:14.514546" elapsed="0.021546"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:09.760682" level="INFO">Clicking button 'id=login'.</msg>
+<msg time="2024-10-28T21:32:14.537174" level="INFO">Clicking button 'id=login'.</msg>
 <arg>locator=${botaoInput}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.760682" elapsed="0.071983"/>
+<status status="PASS" start="2024-10-28T21:32:14.537174" elapsed="0.075303"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:09.255509" elapsed="0.577156"/>
+<status status="PASS" start="2024-10-28T21:32:14.077552" elapsed="0.535742"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=Logout</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-10-28T21:27:09.832665" elapsed="0.867356"/>
+<status status="PASS" start="2024-10-28T21:32:14.613294" elapsed="0.437339"/>
 </kw>
 <kw name="Clicar na opção Cadastros" owner="Company">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${CADASTROS_XPATH}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-28T21:27:10.700021" elapsed="0.015732"/>
+<status status="PASS" start="2024-10-28T21:32:15.050633" elapsed="0.016012"/>
 </kw>
 <kw name="Scroll Element Into View" owner="SeleniumLibrary">
 <arg>${CADASTROS_XPATH}</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2024-10-28T21:27:10.715753" elapsed="0.297507"/>
+<status status="PASS" start="2024-10-28T21:32:15.066645" elapsed="0.282455"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
 <arg>${CADASTROS_XPATH}</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2024-10-28T21:27:11.013260" elapsed="0.030169"/>
+<status status="PASS" start="2024-10-28T21:32:15.349100" elapsed="0.033172"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:11.043429" level="INFO">Clicking element '//div[contains(@class, 'MuiListItemText-root css-1tsvksn') and contains(@id,'Cadastros')]'.</msg>
+<msg time="2024-10-28T21:32:15.382272" level="INFO">Clicking element '//div[contains(@class, 'MuiListItemText-root css-1tsvksn') and contains(@id,'Cadastros')]'.</msg>
 <arg>${CADASTROS_XPATH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-28T21:27:11.043429" elapsed="0.064077"/>
+<status status="PASS" start="2024-10-28T21:32:15.382272" elapsed="0.052691"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:10.700021" elapsed="0.407485"/>
+<status status="PASS" start="2024-10-28T21:32:15.050633" elapsed="0.384330"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=Cadastros</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-10-28T21:27:11.111003" elapsed="0.019983"/>
+<status status="PASS" start="2024-10-28T21:32:15.445104" elapsed="0.015979"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-28T21:27:21.131431" level="INFO">Slept 10 seconds.</msg>
+<msg time="2024-10-28T21:32:25.461998" level="INFO">Slept 10 seconds.</msg>
 <arg>10</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-28T21:27:11.130986" elapsed="10.000445"/>
+<status status="PASS" start="2024-10-28T21:32:15.461701" elapsed="10.000297"/>
 </kw>
 <kw name="Clicar no botão Empresa" owner="Company">
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:21.131431" level="INFO">Opening url 'https://automacao.qacoders.dev.br/company'</msg>
+<msg time="2024-10-28T21:32:25.461998" level="INFO">Opening url 'https://automacao.qacoders.dev.br/company'</msg>
 <arg>https://automacao.qacoders.dev.br/company</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2024-10-28T21:27:21.131431" elapsed="0.175682"/>
+<status status="PASS" start="2024-10-28T21:32:25.461998" elapsed="0.229564"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-10-28T21:27:21.313268" level="INFO">Clicking element '//div[contains(@class, 'MuiListItemText-root css-1tsvksn') and contains(@id,'Cadastros')]'.</msg>
+<msg time="2024-10-28T21:32:25.691562" level="INFO">Clicking element '//div[contains(@class, 'MuiListItemText-root css-1tsvksn') and contains(@id,'Cadastros')]'.</msg>
 <arg>${EMPRESAS_XPATH}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-10-28T21:27:21.307113" elapsed="0.103079"/>
+<status status="PASS" start="2024-10-28T21:32:25.691562" elapsed="0.101554"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-28T21:27:31.410977" level="INFO">Slept 10 seconds.</msg>
+<msg time="2024-10-28T21:32:35.793803" level="INFO">Slept 10 seconds.</msg>
 <arg>10</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-28T21:27:21.410192" elapsed="10.000785"/>
+<status status="PASS" start="2024-10-28T21:32:25.793660" elapsed="10.000143"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${NOME_COLUNA_XPATH}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-10-28T21:27:31.410977" elapsed="0.019301"/>
+<status status="PASS" start="2024-10-28T21:32:35.796241" elapsed="0.047143"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:21.131431" elapsed="10.298847"/>
+<status status="PASS" start="2024-10-28T21:32:25.461998" elapsed="10.381386"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2024-10-28T21:27:41.446130" level="INFO">Slept 10 seconds.</msg>
+<msg time="2024-10-28T21:32:45.844083" level="INFO">Slept 10 seconds.</msg>
 <arg>10</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2024-10-28T21:27:31.445912" elapsed="10.000218"/>
+<status status="PASS" start="2024-10-28T21:32:35.843384" elapsed="10.000699"/>
 </kw>
 <kw name="Fechar o navegador" owner="Company" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-10-28T21:27:41.446130" elapsed="6.532259"/>
+<status status="PASS" start="2024-10-28T21:32:45.844083" elapsed="6.295470"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:41.446130" elapsed="6.532259"/>
+<status status="PASS" start="2024-10-28T21:32:45.844083" elapsed="6.295470"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:04.524686" elapsed="43.453703"/>
+<status status="PASS" start="2024-10-28T21:32:09.868072" elapsed="42.271481"/>
 </test>
 <kw name="Fechar o navegador" owner="Company" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-10-28T21:27:47.978389" elapsed="0.000000"/>
+<status status="PASS" start="2024-10-28T21:32:52.139553" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:47.978389" elapsed="0.000000"/>
+<status status="PASS" start="2024-10-28T21:32:52.139553" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-10-28T21:27:04.321259" elapsed="43.657130"/>
+<status status="PASS" start="2024-10-28T21:32:09.681235" elapsed="42.458318"/>
 </suite>
 <statistics>
 <total>
