@@ -6,7 +6,7 @@ on:
 jobs:	
   tests:
     name: Run Tests 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -23,20 +23,18 @@ jobs:
           pip install robotframework-requests
           pip install robotframework-seleniumlibrary
           pip install selenium
-          pip install webdriver-manager
 
       - name: Install Chrome
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+          choco install googlechrome -y
 
-      - name: Set up /dev/shm
+      - name: Download and Install ChromeDriver
         run: |
-          sudo mount -o remount,size=2G /dev/shm
-
-      - name: Start ChromeDriver with Specific Version
-        run: |
-          python -c "from webdriver_manager.chrome import ChromeDriverManager; ChromeDriverManager('114.0.5735.90').install()"
+          CHROMEDRIVER_VERSION=130.0.6723.69
+          wget "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_win32.zip"
+          powershell -Command "Expand-Archive chromedriver_win32.zip -DestinationPath ."
+          move chromedriver.exe C:\Windows\System32\  # Move the driver to a location in PATH
+          del chromedriver_win32.zip  # Remove the zip file after extraction
 
       - name: Run Robot Framework tests
         env:
