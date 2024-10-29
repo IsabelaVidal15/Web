@@ -28,15 +28,9 @@ jobs:
         run: |
           choco install googlechrome -y
 
-      - name: Download and Install ChromeDriver
+      - name: Set ChromeDriver Path
         run: |
-          powershell -Command "
-          $CHROMEDRIVER_VERSION = '130.0.6723.69';
-          Invoke-WebRequest 'https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_win32.zip' -OutFile 'chromedriver_win32.zip';
-          Expand-Archive 'chromedriver_win32.zip' -DestinationPath '.';
-          Move-Item 'chromedriver.exe' 'C:\Windows\System32\'; 
-          Remove-Item 'chromedriver_win32.zip'
-          "
+          $env:PATH += ";C:\Robot Framework\Logs\Web\tests"
 
       - name: Run Robot Framework tests
         env:
